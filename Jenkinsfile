@@ -3,19 +3,19 @@ pipeline{
   stages{
      stage('Create VPC') {
        steps{
-          sh 'gcloud compute networks create vpc1-custom --project=hari-cloud-first-project  --subnet-mode=custom'
-          sh 'gcloud compute networks create vpc2-custom --project=hari-cloud-first-project  --subnet-mode=custom'
+          sh 'gcloud compute networks create vpc1-custom --project=hari-gcp-learning-project  --subnet-mode=custom'
+          sh 'gcloud compute networks create vpc2-custom --project=hari-gcp-learning-project  --subnet-mode=custom'
       }
     }
     stage('Create subnets') {
        steps{
-           sh 'gcloud compute networks subnets create vpc1-custom-subnets --project=hari-cloud-first-project --range=10.2.0.0/24 --network=vpc1-custom  --region=us-west1'
-           sh 'gcloud compute networks subnets create vpc1-custom-subnets --project=hari-cloud-first-project --range=10.3.0.0/24 --network=vpc1-custom  --region=us-west2'
-           sh 'gcloud compute networks subnets create vpc1-custom-subnets --project=hari-cloud-first-project --range=10.4.0.0/24 --network=vpc1-custom  --region=us-west4'
+           sh 'gcloud compute networks subnets create vpc1-custom-subnets --project=hari-gcp-learning-project --range=10.2.0.0/24 --network=vpc1-custom  --region=us-west1'
+           sh 'gcloud compute networks subnets create vpc1-custom-subnets --project=hari-gcp-learning-project --range=10.3.0.0/24 --network=vpc1-custom  --region=us-west2'
+           sh 'gcloud compute networks subnets create vpc1-custom-subnets --project=hari-gcp-learning-project --range=10.4.0.0/24 --network=vpc1-custom  --region=us-west4'
 
-           sh 'gcloud compute networks subnets create vpc2-custom-subnets --project=hari-cloud-first-project --range=10.5.0.0/24 --network=vpc2-custom  --region=us-east1'
-           sh 'gcloud compute networks subnets create vpc2-custom-subnets --project=hari-cloud-first-project --range=10.6.0.0/24 --network=vpc2-custom  --region=us-east4'
-           sh 'gcloud compute networks subnets create vpc2-custom-subnets --project=hari-cloud-first-project --range=10.7.0.0/24 --network=vpc2-custom  --region=us-east5'
+           sh 'gcloud compute networks subnets create vpc2-custom-subnets --project=hari-gcp-learning-project --range=10.5.0.0/24 --network=vpc2-custom  --region=us-east1'
+           sh 'gcloud compute networks subnets create vpc2-custom-subnets --project=hari-gcp-learning-project --range=10.6.0.0/24 --network=vpc2-custom  --region=us-east4'
+           sh 'gcloud compute networks subnets create vpc2-custom-subnets --project=hari-gcp-learning-project --range=10.7.0.0/24 --network=vpc2-custom  --region=us-east5'
       }
     }
     stage('Create vpc peering') {
